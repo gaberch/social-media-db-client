@@ -1,0 +1,2 @@
+ INSERT INTO Post(postID, authorID, inResponseToPostID, creationTimeStamp, textContent, imageContent, linkContent)
+    VALUES (9,1231,0,'2020-03-28 19:30:09',"Why don't dogs get COVID-19. This is pure discrimination!!",NULL,NULL)
