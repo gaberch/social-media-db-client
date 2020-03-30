@@ -5,6 +5,7 @@ import base64
 import sys
 
 
+
 """
 What should the client be able to do?
 
@@ -341,15 +342,15 @@ def viewAllUsers():
     if (resultrows == []):
         raise Exception('No users currently exist in system')
     
-    print ("userID          username        Birth Date      Gender          Vocation        Religion")
+    print ("userID          username            Birth Date      Gender          Vocation        Religion")
     for row in resultrows:
         row = list(row)
         for i in range(len(row)):
             row[i] = 'null' if row[i] == None else row[i]
         if(row[2] == 'null'):
-            print("{:<14}  {:<14}  {:<14}  {:<14}  {:<14}  {}".format(row[0],row[1],row[2],row[3],row[4],row[5]))
+            print("{:<14}  {:<18}  {:<14}  {:<14}  {:<14}  {}".format(row[0],row[1],row[2],row[3],row[4],row[5]))
         else:            
-            print("{:<14}  {:<14}  {:<14}  {:<14}  {:<14}  {}".format(row[0],row[1],row[2].strftime('%Y-%m-%d'),row[3],row[4],row[5]))
+            print("{:<14}  {:<18}  {:<14}  {:<14}  {:<14}  {}".format(row[0],row[1],row[2].strftime('%Y-%m-%d'),row[3],row[4],row[5]))
 
 
 def viewAllPosts():
