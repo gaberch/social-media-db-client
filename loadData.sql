@@ -1,6 +1,6 @@
 use CourseProject;
 
-LOAD DATA LOCAL INFILE '../refinedTwitterDataset/UserRefined.csv'
+LOAD DATA LOCAL INFILE './refinedTwitterDataset/UserRefined.csv'
 	INTO TABLE User
 	FIELDS TERMINATED BY ','
 	LINES TERMINATED BY '\n'
@@ -10,7 +10,7 @@ LOAD DATA LOCAL INFILE '../refinedTwitterDataset/UserRefined.csv'
     userID=@userID,
     username=@username;
 
-LOAD DATA LOCAL INFILE '../refinedTwitterDataset/TopicFollowingRefined.csv'
+LOAD DATA LOCAL INFILE './refinedTwitterDataset/TopicFollowingRefined.csv'
 	INTO TABLE Topic
 	FIELDS TERMINATED BY ','
 	LINES TERMINATED BY '\n'
@@ -19,7 +19,7 @@ LOAD DATA LOCAL INFILE '../refinedTwitterDataset/TopicFollowingRefined.csv'
     SET 
     topicName=@topic;
 
-LOAD DATA LOCAL INFILE '../refinedTwitterDataset/TopicFollowingRefined.csv'
+LOAD DATA LOCAL INFILE './refinedTwitterDataset/TopicFollowingRefined.csv'
 	INTO TABLE TopicFollowing
 	FIELDS TERMINATED BY ','
 	LINES TERMINATED BY '\n'
@@ -29,7 +29,7 @@ LOAD DATA LOCAL INFILE '../refinedTwitterDataset/TopicFollowingRefined.csv'
     userID=@userID,
     topicName=@topic;
 
-LOAD DATA LOCAL INFILE '../refinedTwitterDataset/UserFollowingRefined.csv'
+LOAD DATA LOCAL INFILE './refinedTwitterDataset/UserFollowingRefined.csv'
 	INTO TABLE UserFollowing
 	FIELDS TERMINATED BY ','
 	LINES TERMINATED BY '\n'
