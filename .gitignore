@@ -1,3 +1,6 @@
 /venv/
-
+/tests/
 /__pycache__/
+
+Part1.md
+modifyCSV.py

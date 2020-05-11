@@ -5,43 +5,17 @@ import base64
 import sys
 
 
-
-"""
-What should the client be able to do?
-
-    (a) A person should be able to initial a post on a topic
-    (b) A person should be able to follow/join a group with another person
-    (c) A person should be able to follow a topic
-    (d) A person should be able to determine what posts have been added by people and/or topics that
-    they are following since they last read from those people/topics
-    (e) A person should be able to respond to a post with thumbs up/down and/or a response post.
-    (f) Additional as appropriate ...
-
-
-    - Define api rules (ie. --help printout?)
-    - Clean up output when sending data to user
-    - Create continous loop that waits for user commands until quit command
-
-- Clean up ER diagram
-- Load csv file into database
-- Demo video
-
-"""
-
-
 # DB connection
 try:
     connection = mysql.connector.connect(host='192.168.56.101',
-                                         database='CourseProject',
+                                         database='SocialMediaDB',
                                          user='admin',
                                          password='admin')
     if connection.is_connected():
         db_Info = connection.get_server_info()
-        # print("Connected to MySQL Server version ", db_Info)
         cursor = connection.cursor()
         cursor.execute("select database();")
         record = cursor.fetchone()
-        # print("You're connected to database: ", record)
 
 
 except Error as e:
@@ -432,26 +406,6 @@ def userGetReactedPosts(userID):
             print("{:<14}  {:<8}  {:<12}  {:<19}  {:<19}  {:<24}  {:<16}  {}".format(row[0],row[1],row[2],row[3],row[4].strftime('%Y-%m-%d %H:%M:%S'),row[5],row[6],row[7]))
 
 
-
-# - ADMIN COMMANDS:
-#     - addUser(userID, username, birthDate='NULL', gender='NULL', vocation='NULL', religion='NULL')
-#     - addSubtopicMapping(topicName, subTopicName)
-#     - viewAllPosts()
-#     - viewAllUsers()
-#     - viewAllTopics()
-
-
-# - USER COMMANDS:
-#     - userCreatePost(authorID, inResponseToPostID='NULL', textContent='NULL', imageFile='NULL', linkContent='NULL', topicNameList=[])
-#     - userFollowTopic(userID, topicName)
-#     - userReactPost(userID, postID, reaction)
-#     - userFollowUser(followerID,followedID)
-#     - userJoinGroup(userID, groupID)
-#     - userCreateGroup(userID, groupName)
-#     - userGetNotifications(userID)
-#     - userGetReactedPosts(userID)
-
-
 def man():
     print("""
 Welcome to the social media client. Below are a list of commands available
@@ -656,5 +610,4 @@ while True:
 if (connection.is_connected()):
     cursor.close()
     connection.close()
-    # print("MySQL connection is closed")
 

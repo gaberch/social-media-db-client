@@ -1,6 +1,6 @@
-DROP DATABASE IF EXISTS CourseProject;
-CREATE DATABASE CourseProject;
-USE CourseProject;
+DROP DATABASE IF EXISTS SocialMediaDB;
+CREATE DATABASE SocialMediaDB;
+USE SocialMediaDB;
 
 
 
